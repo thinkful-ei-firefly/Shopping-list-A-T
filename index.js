@@ -14,29 +14,26 @@ In terms of user experience, your shopping list app must allow users to:
 3. permanently remove items from the list*/
 
 
-$( document ).ready(function() { 
-  console.log( 'ready!' );
+$(document).ready(function () {
 
+  $('#js-shopping-list-form').submit(function (event) {
+    event.preventDefault();
+    let input = $('.js-shopping-list-entry').val();
 
-$('#js-shopping-list-form').submit(function(event){ 
-  
-  event.preventDefault();
-  
-  let input = $('.js-shopping-list-entry').val();
+    $('.shopping-list').append(
+      `<li>
+        <span class="shopping-item">${input}</span>
+        <div class="shopping-item-controls">
+          <button class="shopping-item-toggle">
+            <span class="button-label">check</span>
+          </button>
+          <button class="shopping-item-delete">
+            <span class="button-label">delete</span>
+          </button>
+        </div>
+      </li>`);
+  });
 
   
-  $('.shopping-list').append (
-    <li>
-      <span class="shopping-item">${input}</span>
-      <div class="shopping-item-controls">
-        <button class="shopping-item-toggle">
-          <span class="button-label">check</span>
-        </button>
-        <button class="shopping-item-delete">
-          <span class="button-label">delete</span>
-        </button>
-      </div>
-    </li>
-  );
 
 });
