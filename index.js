@@ -13,4 +13,14 @@ In terms of user experience, your shopping list app must allow users to:
 2. check and uncheck items on the list by clicking the "Check" button.
 3. permanently remove items from the list*/
 
-function addItem(),
+$( document ).ready(function() { 
+  console.log( 'ready!' );
+});
+
+$('#js-shopping-list-form').submit(function(event){
+  let input = $('#shopping-list-entry').val();
+
+
+})
+
+
