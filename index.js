@@ -15,14 +15,19 @@ In terms of user experience, your shopping list app must allow users to:
 
 
 $(document).ready(function () {
+  console.log("ready!");
 
   $('#js-shopping-list-form').submit(function (event) {
+
     event.preventDefault();
-    let input = $('.js-shopping-list-entry').val();
+
+    const inputIteam = $('#shopping-list-entry').val();
+
+    $('#shopping-list-entry').val('');
 
     $('.shopping-list').append(
       `<li>
-        <span class="shopping-item">${input}</span>
+        <span class="shopping-item">${inputIteam}</span>
         <div class="shopping-item-controls">
           <button class="shopping-item-toggle">
             <span class="button-label">check</span>
@@ -34,6 +39,14 @@ $(document).ready(function () {
       </li>`);
   });
 
-  
+  $('.shopping-list').on('click', '.shopping-item-delete', function (event) {
+
+    $(this).closest('li').remove();
+  });
+
+  $('.shopping-list').on('click', '.shopping-item-toggle', function (event) {
+
+    $(this).closest('li').find('.shopping-item').toggleClass('shopping-item__checked');
+  });
 
 });
